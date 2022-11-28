@@ -1,16 +1,14 @@
 import { Container } from "./styles";
 
-import { Header } from '../../components/Header';
-import { Tag } from '../../components/Tag';
+import { Header } from "../../components/Header";
+import { Rating } from "../../components/Rating";
 
 export function Home() {
   return (
     <Container>
       <Header />
 
-      <Tag title="Ficção Científica" />
-			<Tag title="Drama" />
-      <Tag title="Família" />
+      <Rating grade="4" isBigSize={false} />
     </Container>
   );
 }

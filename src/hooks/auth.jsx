@@ -14,6 +14,22 @@ function AuthProvider({ children }) {
         setData({});
     }
 
+    async function updateProfile({ user }) {
+        try {
+            await api.put("/users", user);
+            localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
+
+            setData({ user, token: data.token });
+            alert("Perfil atualizado!");
+        } catch (error) {
+            if (error.response) {
+                alert(error.response.data.message);
+            } else {
+                alert("Não foi possível atualizar o perfil.");
+            }
+        }
+    }
+
     async function signIn({ email, password }) {
         try {
             const response = await api.post("/sessions", { email, password });
@@ -51,6 +67,7 @@ function AuthProvider({ children }) {
         <AuthContext.Provider value={{ 
             signIn, 
             signOut,
+            updateProfile,
             user: data.user, 
         }}
         >

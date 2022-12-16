@@ -16,7 +16,7 @@ export const Container = styled.div`
 
     a {
       color: ${({ theme }) => theme.COLORS.PINK};
-      
+
       display: flex;
       align-items: center;
       gap: 8px;
@@ -65,7 +65,7 @@ export const Avatar = styled.div`
     input {
       display: none;
     }
-    
+
     svg {
       width: 20px;
       height: 20px;

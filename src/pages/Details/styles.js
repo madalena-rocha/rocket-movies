@@ -9,7 +9,7 @@ export const Container = styled.div`
   grid-template-areas:
     "header"
     "content";
-  
+
   > main {
     grid-area: content;
     overflow-y: auto;
@@ -26,11 +26,11 @@ export const Container = styled.div`
       a {
         font-size: 16px;
         color: ${({ theme }) => theme.COLORS.PINK};
-        
+
         display: flex;
         align-items: center;
         gap: 8px;
-        
+
         margin-bottom: 24px;
       }
 
@@ -70,10 +70,10 @@ export const Container = styled.div`
     > p {
       text-align: justify;
       color: ${({ theme }) => theme.COLORS.WHITE};
-      
+
       margin-top: 40px;
       max-width: calc(100% - 8px);
-      
+
       line-height: 21px;
     }
   }
@@ -81,7 +81,7 @@ export const Container = styled.div`
   > main::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   > main::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.COLORS.PINK};
     border-radius: 8px;

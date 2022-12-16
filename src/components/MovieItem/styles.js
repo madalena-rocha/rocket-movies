@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  
+
   background-color: ${({ theme, isNew }) =>
     isNew ? "transparent" : theme.COLORS.BACKGROUND_700};
   border: ${({ theme, isNew }) =>
@@ -31,7 +31,7 @@ export const Container = styled.div`
     background: transparent;
 
     border: none;
-    
+
     &::placeholder {
       color: ${({ theme }) => theme.COLORS.GRAY_200};
     }

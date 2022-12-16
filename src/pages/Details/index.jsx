@@ -4,13 +4,18 @@ import { Link } from "react-router-dom";
 import { Container } from "./styles";
 
 import { Header } from "../../components/Header";
+import { Input } from "../../components/Input";
 import { Rating } from "../../components/Rating";
 import { Tag } from "../../components/Tag";
 
 export function Details({ data, ...rest }) {
   return (
     <Container {...rest}>
-      <Header />
+      <Header>
+        <Input 
+          placeholder="Pesquisar pelo título"
+        />
+      </Header>
 
       <main>
         <header>

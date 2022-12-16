@@ -4,9 +4,7 @@ import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
-import { Input } from "../../components/Input";
-
-export function Header() {
+export function Header({children}) {
   const { signOut, user } = useAuth();
 
   const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
@@ -18,7 +16,7 @@ export function Header() {
       </Brand>
 
       <Search>
-        <Input placeholder="Pesquisar pelo título" />
+        {children}
       </Search>
 
       <Profile to="/profile">

@@ -43,7 +43,7 @@ export const Container = styled.div`
         gap: 8px;
         margin-top: 24px;
 
-        p {
+        p:nth-child(1), div {
           display: flex;
           align-items: center;
           gap: 8px;

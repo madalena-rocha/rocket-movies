@@ -45,7 +45,10 @@ export const Form = styled.form`
 
     margin-bottom: 40px;
 
-    a {
+    button {
+      background: none;
+			border: none;
+
       color: ${({ theme }) => theme.COLORS.PINK};
 
       display: flex;

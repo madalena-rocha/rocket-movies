@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { FiArrowLeft } from "react-icons/fi";
-import { Link } from "react-router-dom";
 
 import { useNavigate } from 'react-router-dom';
 
@@ -24,6 +23,10 @@ export function New() {
 	const [newTag, setNewTag] = useState("");
 
   const navigate = useNavigate();
+
+	function handleBack() {
+		navigate(-1);
+	}
 
   function handleAddTag() {
 		setTags(prevState => [...prevState, newTag])
@@ -57,7 +60,7 @@ export function New() {
 		});
 
 		alert("Filme adicionado com sucesso!");
-		navigate("/");
+		navigate(-1);
 	}
 
   function handleDiscardMovie() {
@@ -66,7 +69,7 @@ export function New() {
     );
 
     if (userConfirmation) {
-      navigate("/");
+      navigate(-1);
     }
   }
 
@@ -81,10 +84,10 @@ export function New() {
       <main>
         <Form>
           <header>
-            <Link to="/">
+            <button type="button" onClick={handleBack}>
               <FiArrowLeft />
               Voltar
-            </Link>
+            </button>
 
             <h1>Novo filme</h1>
           </header>

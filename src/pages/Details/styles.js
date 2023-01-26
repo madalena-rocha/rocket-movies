@@ -24,7 +24,10 @@ export const Container = styled.div`
 
       margin-bottom: 40px;
 
-      a {
+      button {
+        background: none;
+			  border: none;
+
         font-size: 16px;
         color: ${({ theme }) => theme.COLORS.PINK};
         

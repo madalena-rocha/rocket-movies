@@ -14,7 +14,10 @@ export const Container = styled.div`
 
     padding: 0 144px;
 
-    a {
+    button {
+      background: none;
+			border: none;
+
       color: ${({ theme }) => theme.COLORS.PINK};
       
       display: flex;
@@ -45,6 +48,7 @@ export const Avatar = styled.div`
     height: 186px;
     border-radius: 50%;
   }
+
   > label {
     width: 48px;
     height: 48px;

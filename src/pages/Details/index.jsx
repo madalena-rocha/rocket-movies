@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { FiArrowLeft, FiClock } from "react-icons/fi";
-import { Link } from "react-router-dom";
 import { useParams, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
@@ -21,7 +20,6 @@ export function Details() {
   const [data, setData] = useState({});
 
 	const params = useParams();
-  const navigate = useNavigate();
   
   const { user } = useAuth();
   
@@ -29,12 +27,18 @@ export function Details() {
 
   const formattedDate = moment.utc(data.updated_at).tz('America/Sao_Paulo').format('DD/MM/YYYY HH:mm:ss');
 
+  const navigate = useNavigate();
+
+	function handleBack() {
+		navigate(-1);
+	}
+
   async function handleRemove() {
 		const confirm = window.confirm("Deseja realmente remover o filme?");
 
 		if (confirm) {
 			await api.delete(`/notes/${params.id}`);
-			navigate("/");
+			navigate(-1);
 		}
 	}
 
@@ -59,10 +63,10 @@ export function Details() {
 				data &&
         <main>
           <header>
-            <Link to="/">
+            <button type="button" onClick={handleBack}>
               <FiArrowLeft />
               Voltar
-            </Link>
+            </button>
 
             <div>
               <h1>{data.title}</h1>

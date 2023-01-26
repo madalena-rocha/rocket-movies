@@ -134,7 +134,7 @@ export function New() {
 
           <div>
             <Button 
-              title="Excluir filme" 
+              title="Descartar alterações" 
               onClick={handleDiscardMovie}
             />
 

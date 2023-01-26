@@ -14,6 +14,7 @@ export const Container = styled.div`
     grid-area: content;
     overflow-y: auto;
 
+    width: 100%;
     max-width: 1137px;
     margin: 40px auto;
 
@@ -75,6 +76,14 @@ export const Container = styled.div`
       max-width: calc(100% - 8px);
       
       line-height: 21px;
+    }
+
+    button {
+      background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
+      color: ${({ theme }) => theme.COLORS.PINK};
+
+      width: calc(50% - 20px);
+      margin-top: 40px;
     }
   }
 

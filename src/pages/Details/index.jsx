@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { FiArrowLeft, FiClock } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 
 import { useAuth } from '../../hooks/auth';
 
@@ -15,17 +15,28 @@ import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
 import { Rating } from "../../components/Rating";
 import { Tag } from "../../components/Tag";
+import { Button } from "../../components/Button";
 
 export function Details() {
   const [data, setData] = useState({});
 
 	const params = useParams();
+  const navigate = useNavigate();
   
   const { user } = useAuth();
   
   const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
 
   const formattedDate = moment.utc(data.updated_at).tz('America/Sao_Paulo').format('DD/MM/YYYY HH:mm:ss');
+
+  async function handleRemove() {
+		const confirm = window.confirm("Deseja realmente remover o filme?");
+
+		if (confirm) {
+			await api.delete(`/notes/${params.id}`);
+			navigate("/");
+		}
+	}
 
 	useEffect(() => {
 		async function fetchMovie() {
@@ -93,6 +104,13 @@ export function Details() {
           }
 
           <p>{data.description}</p>
+
+          <div>
+            <Button 
+              title="Excluir filme" 
+              onClick={handleRemove}
+            />
+          </div>
         </main>
       }
     </Container>

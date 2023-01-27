@@ -3,6 +3,7 @@ import { FiArrowLeft } from "react-icons/fi";
 
 import { useNavigate } from 'react-router-dom';
 
+import { ButtonText } from "../../components/ButtonText";
 import { Textarea } from "../../components/Textarea";
 import { MovieItem } from "../../components/MovieItem";
 import { Section } from "../../components/Section";
@@ -84,10 +85,12 @@ export function New() {
       <main>
         <Form>
           <header>
-            <button type="button" onClick={handleBack}>
+            <ButtonText
+              onClick={handleBack}
+            >
               <FiArrowLeft />
               Voltar
-            </button>
+            </ButtonText>
 
             <h1>Novo filme</h1>
           </header>

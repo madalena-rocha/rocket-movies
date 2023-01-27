@@ -17,12 +17,6 @@ export const Container = styled.div`
     button {
       background: none;
 			border: none;
-
-      color: ${({ theme }) => theme.COLORS.PINK};
-      
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
   }
 `;

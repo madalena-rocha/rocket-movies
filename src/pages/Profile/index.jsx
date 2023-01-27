@@ -7,6 +7,7 @@ import { useAuth } from '../../hooks/auth';
 import { api } from '../../services/api';
 import avatarPlaceholder from '../../assets/avatar_placeholder.svg';
 
+import { ButtonText } from "../../components/ButtonText";
 import { Input } from "../../components/Input";
 import { Button } from "../../components/Button";
 
@@ -55,10 +56,12 @@ export function Profile() {
   return (
     <Container>
       <header>
-        <button type="button" onClick={handleBack}>
+        <ButtonText
+          onClick={handleBack}
+        >
           <FiArrowLeft />
           Voltar
-        </button>
+        </ButtonText>
       </header>
 
       <Form>

@@ -12,6 +12,7 @@ import { Container } from "./styles";
 
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
+import { ButtonText } from "../../components/ButtonText";
 import { Rating } from "../../components/Rating";
 import { Tag } from "../../components/Tag";
 import { Button } from "../../components/Button";
@@ -63,10 +64,12 @@ export function Details() {
 				data &&
         <main>
           <header>
-            <button type="button" onClick={handleBack}>
+            <ButtonText
+              onClick={handleBack}
+            >
               <FiArrowLeft />
               Voltar
-            </button>
+            </ButtonText>
 
             <div>
               <h1>{data.title}</h1>

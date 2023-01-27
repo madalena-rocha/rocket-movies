@@ -48,14 +48,6 @@ export const Form = styled.form`
     button {
       background: none;
 			border: none;
-
-      color: ${({ theme }) => theme.COLORS.PINK};
-
-      display: flex;
-      align-items: center;
-      gap: 8px;
-
-      margin-bottom: 24px;
     }
 
     h1 {

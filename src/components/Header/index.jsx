@@ -29,9 +29,6 @@ export function Header({children}) {
       <Profile to="/profile">
         <div>
           <strong>{user.name}</strong>
-          <Logout onClick={handleSignOut}>
-            sair
-          </Logout>
         </div>
 
         <img
@@ -39,6 +36,10 @@ export function Header({children}) {
           alt={user.name}
         />
       </Profile>
+
+      <Logout onClick={handleSignOut}>
+        sair
+      </Logout>
     </Container>
   );
 }

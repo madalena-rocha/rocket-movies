@@ -15,6 +15,8 @@ export const Container = styled.header`
   justify-content: space-between;
   
   padding: 0 123px;
+
+  position: relative;
 `;
 
 export const Brand = styled.div`
@@ -46,13 +48,11 @@ export const Profile = styled(Link)`
   }
 
   > div {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-
     margin-right: 9px;
     font-size: 14px;
     line-height: 18px;
+
+    height: 40px;
 
     strong {
       color: ${({ theme }) => theme.COLORS.WHITE};
@@ -65,4 +65,11 @@ export const Logout = styled.button`
   background: none;
   
   color: ${({ theme }) => theme.COLORS.GRAY_200};
+
+  font-size: 14px;
+  line-height: 18px;
+
+  position: absolute;
+  bottom: 38px;
+  right: 196px;
 `;

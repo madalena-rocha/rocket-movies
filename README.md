@@ -3,59 +3,73 @@
 > Stage 09: Frontend - Explorer
 
 <p align="center">
-  <a href="#-tecnologias">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-projeto">Páginas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#-layout">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
-  <a href="#memo-licença">Licença</a>
+  <a href="#project">Projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#pages">Páginas</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#features">Funcionalidades</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#technologies">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#usage">Utilização</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+  <a href="#license">Licença</a>
 </p>
 
 <p align="center">
   <img alt="License" src="https://img.shields.io/static/v1?label=license&message=MIT&color=49AA26&labelColor=000000">
 </p>
 
-## :file_folder: Projeto
+<h2 id="project">📁 Projeto</h2>
 
-Frontend do projeto RocketMovies. <br>
-Aplicação para acompanhar tudo que assistir.
+Frontend do projeto RocketMovies, sua aplicação para acompanhar tudo que assistir!
 
-## :page_with_curl: Páginas
+<h2 id="pages">📃 Páginas</h2>
 
-Página de login:
-
-!["Página de login"](./src/assets/SignIn.png)
-
-Página de cadastro:
-
-!["Página de cadastro"](./src/assets/SignUp.png)
-
-Página home:
+A aplicação conta com páginas de login, cadastro, visualizar filme, perfil e cadastrar filme.
 
 !["Página home"](./src/assets/home.png)
 
-Página de preview da nota:
+<h2 id="features">🛠️ Funcionalidades</h2>
 
-!["Página de preview da nota"](./src/assets/details.png)
+A aplicação apresenta as seguintes funcionalidades:
 
-Página de perfil:
+- Login;
+- Cadastro;
+- Mostrar perfil;
+- Atualizar perfil;
+- Cadastrar filmes;
+- Mostrar filmes cadastradas;
+- Filtrar filmes;
+- Mostrar detalhes do filme;
+- Excluir filme;
+- Logout.
 
-!["Página de perfil"](./src/assets/profile.png)
+<h2 id="technologies">💻 Tecnologias</h2>
 
-Página de criar nota:
-
-!["Página de criar nota"](./src/assets/new.png)
-
-## :computer: Tecnologias
-
-Esse projeto foi desenvolvido com as seguintes tecnologias:
+Este projeto foi desenvolvido com as seguintes tecnologias:
 
 - ViteJS;
-- JavaScript;
-- ReactJS.
+- ReactJS;
+- Styled Components;
+- React Icons;
+- React Router;
+- Axios.
 
-## :memo: Licença
+<h2 id="usage">💡 Utilização</h2>
+
+A aplicação RocketMovies está disponível para utilização [aqui](https://rocket-movies-app.netlify.app/).
+
+Você também pode instalá-la em sua máquina localmente. Para isso, clone o projeto, acesse a pasta, instale as dependências e inicie o servidor.
+
+```
+$ git clone https://github.com/madalena-rocha/rocket-movies
+$ cd rocket-movies
+$ npm install
+$ npm run dev
+```
+
+⚠️ **Importante**: Este projeto está utilizando uma hospedagem gratuita para o seu backend, portanto, pode haver atrasos no tempo de resposta do servidor.
+
+<h2 id="license">📝 Licença</h2>
 
 Esse projeto está sob a licença MIT.
 
 ---
 
-Feito com :heart: by Madalena :wave: [Me acompanhe nas redes sociais!](https://madalena-rocha.github.io/social-links/)
+Feito com ❤️ by Madalena 👋 [Me acompanhe nas redes sociais!](https://madalena-rocha.github.io/social-links/)

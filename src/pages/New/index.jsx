@@ -23,6 +23,8 @@ export function New() {
   const [tags, setTags] = useState([]);
 	const [newTag, setNewTag] = useState("");
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
 	function handleBack() {
@@ -39,30 +41,43 @@ export function New() {
 	}
 
   async function handleNewMovie() {
-    if (!title) {
-			return alert("Digite o título do filme");
-		}
-    
-    const isRatingValid = rating >= 0 && rating <= 5;
-
-    if (!isRatingValid) {
-      return alert("A nota do filme deve ser entre 0 e 5");
+    setLoading(true);
+  
+    try {
+      if (!title) {
+        return alert("Digite o título do filme");
+      }
+      
+      const isRatingValid = rating >= 0 && rating <= 5;
+  
+      if (!isRatingValid) {
+        return alert("A nota do filme deve ser entre 0 e 5");
+      }
+      
+      if (newTag) {
+        return alert("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.");
+      }
+  
+      await api.post("/notes", {
+        title,
+        description,
+        rating,
+        tags
+      });
+  
+      alert("Filme adicionado com sucesso!");
+      navigate(-1);
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert('Não foi possível adicionar o filme.');
+        console.log('Erro ao adicionar o filme:', error);
+      }
+    } finally {
+      setLoading(false);
     }
-    
-		if (newTag) {
-			return alert("Você deixou uma tag no campo para adicionar, mas não clicou em adicionar. Clique para adicionar ou deixe o campo vazio.");
-		}
-
-		await api.post("/notes", {
-			title,
-			description,
-      rating,
-			tags
-		});
-
-		alert("Filme adicionado com sucesso!");
-		navigate(-1);
-	}
+  }  
 
   function handleDiscardMovie() {
     const userConfirmation = confirm(
@@ -147,6 +162,7 @@ export function New() {
             <Button 
               title="Salvar alterações" 
               onClick={handleNewMovie}
+              loading={loading}
             />
           </div>
         </Form>

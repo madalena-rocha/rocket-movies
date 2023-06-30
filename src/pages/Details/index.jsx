@@ -19,6 +19,7 @@ import { Button } from "../../components/Button";
 
 export function Details() {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(false);
 
 	const params = useParams();
   
@@ -35,13 +36,26 @@ export function Details() {
 	}
 
   async function handleRemove() {
-		const confirm = window.confirm("Deseja realmente remover o filme?");
-
-		if (confirm) {
-			await api.delete(`/notes/${params.id}`);
-			navigate(-1);
-		}
-	}
+    const confirm = window.confirm("Deseja realmente remover o filme?");
+  
+    if (confirm) {
+      setLoading(true);
+  
+      try {
+        await api.delete(`/notes/${params.id}`);
+        navigate(-1);
+      } catch (error) {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert('Não foi possível remover o filme.');
+          console.log('Erro ao remover o filme:', error);
+        }
+      } finally {
+        setLoading(false);
+      }
+    }
+  }  
 
 	useEffect(() => {
 		async function fetchMovie() {
@@ -116,6 +130,7 @@ export function Details() {
             <Button 
               title="Excluir filme" 
               onClick={handleRemove}
+              loading={loading}
             />
           </div>
         </main>

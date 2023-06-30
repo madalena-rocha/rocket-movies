@@ -26,24 +26,39 @@ export function Profile() {
 	const [avatar, setAvatar] = useState(avatarURL);
 	const [avatarFile, setAvatarFile] = useState(null);
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
 	function handleBack() {
 		navigate(-1);
 	}
 
-	async function handleUpdate() {
-		const updated = {
-			name,
-			email, 
-			password: passwordNew,
-			old_password: passwordOld,
-		}
-
-    const userUpdated = Object.assign(user, updated);
-
-		await updateProfile({ user: userUpdated, avatarFile });
-	}
+  async function handleUpdate() {
+    setLoading(true);
+    
+    try {
+      const updated = {
+        name,
+        email, 
+        password: passwordNew,
+        old_password: passwordOld,
+      }
+  
+      const userUpdated = Object.assign(user, updated);
+  
+      await updateProfile({ user: userUpdated, avatarFile });
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert('Não foi possível atualizar o perfil.');
+        console.log('Erro ao atualizar o perfil:', error);
+      }
+    } finally {
+      setLoading(false);
+    }
+  }  
 
   function handleChangeAvatar(event) {
 		const file = event.target.files[0];
@@ -112,7 +127,7 @@ export function Profile() {
           onChange={e => setPasswordNew(e.target.value)}
         />
 
-        <Button title="Salvar" onClick={handleUpdate} />
+        <Button title="Salvar" onClick={handleUpdate} loading={loading} />
       </Form>
     </Container>
   );

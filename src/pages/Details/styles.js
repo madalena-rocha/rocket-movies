@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 116px auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas:
     "header"
     "content";
@@ -15,14 +15,14 @@ export const Container = styled.div`
     overflow-y: auto;
 
     width: 100%;
-    max-width: 1137px;
-    margin: 40px auto;
+    max-width: 113.7rem;
+    margin: 4rem auto;
 
     header {
       display: flex;
       flex-direction: column;
 
-      margin-bottom: 40px;
+      margin-bottom: 4rem;
 
       button {
         background: none;
@@ -35,19 +35,19 @@ export const Container = styled.div`
       }
 
       .movie-info {
-        gap: 8px;
-        margin-top: 24px;
+        gap: 0.8rem;
+        margin-top: 2.4rem;
 
         p:nth-child(1),
         div {
           display: flex;
           align-items: center;
-          gap: 8px;
+          gap: 0.8rem;
         }
 
         img {
-          width: 16px;
-          height: 16px;
+          width: 1.6rem;
+          height: 1.6rem;
           border-radius: 50%;
         }
 
@@ -58,8 +58,8 @@ export const Container = styled.div`
 
       h1 {
         font-weight: 500;
-        font-size: 36px;
-        margin-right: 19px;
+        font-size: 3.6rem;
+        margin-right: 1.9rem;
       }
     }
 
@@ -67,27 +67,27 @@ export const Container = styled.div`
       text-align: justify;
       color: ${({ theme }) => theme.COLORS.WHITE};
 
-      margin-top: 40px;
-      max-width: calc(100% - 8px);
+      margin-top: 4rem;
+      max-width: calc(100% - 0.8rem);
 
-      line-height: 21px;
+      line-height: 2.1rem;
     }
 
     button {
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
       color: ${({ theme }) => theme.COLORS.PINK};
 
-      width: calc(50% - 20px);
-      margin-top: 40px;
+      width: calc(50% - 2rem);
+      margin-top: 4rem;
     }
   }
 
   > main::-webkit-scrollbar {
-    width: 8px;
+    width: 0.8rem;
   }
 
   > main::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.COLORS.PINK};
-    border-radius: 8px;
+    border-radius: 0.8rem;
   }
 `;

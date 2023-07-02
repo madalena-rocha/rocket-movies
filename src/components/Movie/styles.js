@@ -1,32 +1,32 @@
 import styled from "styled-components";
 
 export const Container = styled.button`
-  width: calc(100% - 8px);
+  width: calc(100% - 0.8rem);
   background-color: ${({ theme }) => theme.COLORS.BACKGROUND_600};
 
   border: none;
-  border-radius: 16px;
+  border-radius: 1.6rem;
 
-  padding: 32px;
-  margin-bottom: 24px;
-  margin-right: 8px;
+  padding: 3.2rem;
+  margin-bottom: 2.4rem;
+  margin-right: 0.8rem;
 
   > h1 {
     flex: 1;
     text-align: left;
-    font-size: 24px;
+    font-size: 2.4rem;
     color: ${({ theme }) => theme.COLORS.WHITE};
-    margin-bottom: 8px;
+    margin-bottom: 0.8rem;
   }
 
   > p {
     text-align: justify;
     color: ${({ theme }) => theme.COLORS.GRAY_300};
 
-    margin: 15px 0;
-    max-height: 53px;
+    margin: 1.5rem 0;
+    max-height: 5.3rem;
 
-    line-height: 19px;
+    line-height: 1.9rem;
 
     overflow: hidden;
     text-overflow: ellipsis;
@@ -39,6 +39,6 @@ export const Container = styled.button`
   > footer {
     width: 100%;
     display: flex;
-    margin-top: 15px;
+    margin-top: 1.5rem;
   }
 `;

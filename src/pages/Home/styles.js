@@ -6,7 +6,7 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 116px auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas:
     "header"
     "content";
@@ -15,15 +15,15 @@ export const Container = styled.div`
     grid-area: content;
 
     width: 100%;
-    max-width: 1137px;
-    margin: 48px auto;
+    max-width: 113.7rem;
+    margin: 4.8rem auto;
 
     header {
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      margin-bottom: 38px;
+      margin-bottom: 3.8rem;
 
       h1 {
         font-weight: 400;
@@ -33,16 +33,16 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
-  max-height: calc(100vh - 297px);
+  max-height: calc(100vh - 29.7rem);
   overflow-y: auto;
 
   ::-webkit-scrollbar {
-    width: 8px;
+    width: 0.8rem;
   }
 
   ::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.COLORS.PINK};
-    border-radius: 8px;
+    border-radius: 0.8rem;
   }
 `;
 
@@ -54,8 +54,8 @@ export const NewMovie = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.8rem;
 
-  padding: 13.5px 32px;
-  border-radius: 8px;
+  padding: 1.35rem 3.2rem;
+  border-radius: 0.8rem;
 `;

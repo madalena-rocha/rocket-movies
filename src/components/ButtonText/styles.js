@@ -4,12 +4,12 @@ export const Container = styled.button`
   background: none;
   border: none;
 
-  font-size: 16px;
+  font-size: 1.6rem;
   color: ${({ theme }) => theme.COLORS.PINK};
 
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.8rem;
 
-  margin-bottom: 24px;
+  margin-bottom: 2.4rem;
 `;

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export const Container = styled.header`
   grid-area: header;
 
-  height: 116px;
+  height: 11.6rem;
   width: 100%;
 
   border-bottom-width: 1px;
@@ -14,7 +14,7 @@ export const Container = styled.header`
   display: flex;
   justify-content: space-between;
 
-  padding: 0 123px;
+  padding: 0 12.3rem;
 
   position: relative;
 `;
@@ -25,7 +25,7 @@ export const Brand = styled.div`
   align-items: center;
 
   > h1 {
-    font-size: 24px;
+    font-size: 2.4rem;
     color: ${({ theme }) => theme.COLORS.PINK};
   }
 `;
@@ -33,7 +33,7 @@ export const Brand = styled.div`
 export const Search = styled.div`
   display: flex;
   align-items: center;
-  padding: 0 64px;
+  padding: 0 6.4rem;
   flex-grow: 1;
 `;
 
@@ -42,17 +42,17 @@ export const Profile = styled(Link)`
   align-items: center;
 
   > img {
-    width: 64px;
-    height: 64px;
+    width: 6.4rem;
+    height: 6.4rem;
     border-radius: 50%;
   }
 
   > div {
-    margin-right: 9px;
-    font-size: 14px;
-    line-height: 18px;
+    margin-right: 0.9rem;
+    font-size: 1.4rem;
+    line-height: 1.8rem;
 
-    height: 40px;
+    height: 4rem;
 
     strong {
       color: ${({ theme }) => theme.COLORS.WHITE};
@@ -66,10 +66,10 @@ export const Logout = styled.button`
 
   color: ${({ theme }) => theme.COLORS.GRAY_200};
 
-  font-size: 14px;
-  line-height: 18px;
+  font-size: 1.4rem;
+  line-height: 1.8rem;
 
   position: absolute;
-  bottom: 38px;
-  right: 196px;
+  bottom: 3.8rem;
+  right: 19.6rem;
 `;

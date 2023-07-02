@@ -5,7 +5,7 @@ export const Container = styled.div`
   height: 100vh;
 
   display: grid;
-  grid-template-rows: 116px auto;
+  grid-template-rows: 11.6rem auto;
   grid-template-areas:
     "header"
     "content";
@@ -16,12 +16,12 @@ export const Container = styled.div`
   }
 
   > main::-webkit-scrollbar {
-    width: 8px;
+    width: 0.8rem;
   }
 
   > main::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.COLORS.PINK};
-    border-radius: 8px;
+    border-radius: 0.8rem;
   }
 
   .tags {
@@ -30,20 +30,20 @@ export const Container = styled.div`
 
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
 
-    padding: 16px 16px 8px;
-    border-radius: 8px;
+    padding: 1.6rem 1.6rem 0.8rem;
+    border-radius: 0.8rem;
   }
 `;
 
 export const Form = styled.form`
-  max-width: 1137px;
-  margin: 46px auto;
+  max-width: 113.7rem;
+  margin: 4.6rem auto;
 
   > header {
     display: flex;
     flex-direction: column;
 
-    margin-bottom: 40px;
+    margin-bottom: 4rem;
 
     button {
       background: none;
@@ -52,13 +52,13 @@ export const Form = styled.form`
 
     h1 {
       font-weight: 500;
-      font-size: 36px;
+      font-size: 3.6rem;
     }
   }
 
   > div {
     display: flex;
-    gap: 40px;
+    gap: 4rem;
 
     button:nth-child(1) {
       background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
@@ -67,6 +67,6 @@ export const Form = styled.form`
   }
 
   textarea {
-    margin-top: 32px;
+    margin-top: 3.2rem;
   }
 `;

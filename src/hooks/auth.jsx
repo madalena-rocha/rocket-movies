@@ -1,93 +1,94 @@
-import { createContext, useContext, useState, useEffect } from 'react';
+import { createContext, useContext, useState, useEffect } from "react";
 
-import { api } from '../services/api';
+import { api } from "../services/api";
 
 export const AuthContext = createContext({});
 
 function AuthProvider({ children }) {
-    const [data, setData] = useState({});
+  const [data, setData] = useState({});
 
-    function signOut() {
-        localStorage.removeItem("@rocketmovies:token");
-        localStorage.removeItem("@rocketmovies:user");
+  function signOut() {
+    localStorage.removeItem("@rocketmovies:token");
+    localStorage.removeItem("@rocketmovies:user");
 
-        setData({});
+    setData({});
+  }
+
+  async function updateProfile({ user, avatarFile }) {
+    try {
+      if (avatarFile) {
+        const fileUploadForm = new FormData();
+        fileUploadForm.append("avatar", avatarFile);
+
+        const response = await api.patch("/users/avatar", fileUploadForm);
+        user.avatar = response.data.avatar;
+      }
+
+      await api.put("/users", user);
+      localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
+
+      setData({ user, token: data.token });
+      alert("Perfil atualizado!");
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert("Não foi possível atualizar o perfil.");
+      }
     }
+  }
 
-    async function updateProfile({ user, avatarFile }) {
-        try {
-            if (avatarFile) {
-                const fileUploadForm = new FormData();
-                fileUploadForm.append("avatar", avatarFile);
+  async function signIn({ email, password }) {
+    try {
+      const response = await api.post("/sessions", { email, password });
+      const { user, token } = response.data;
 
-                const response = await api.patch("/users/avatar", fileUploadForm);
-                user.avatar = response.data.avatar;
-            }
+      localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
+      localStorage.setItem("@rocketmovies:token", token);
 
-            await api.put("/users", user);
-            localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
-
-            setData({ user, token: data.token });
-            alert("Perfil atualizado!");
-        } catch (error) {
-            if (error.response) {
-                alert(error.response.data.message);
-            } else {
-                alert("Não foi possível atualizar o perfil.");
-            }
-        }
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+      setData({ user, token });
+    } catch (error) {
+      if (error.response) {
+        alert(error.response.data.message);
+      } else {
+        alert("Não foi possível entrar.");
+      }
     }
+  }
 
-    async function signIn({ email, password }) {
-        try {
-            const response = await api.post("/sessions", { email, password });
-            const { user, token } = response.data;
+  useEffect(() => {
+    const token = localStorage.getItem("@rocketmovies:token");
+    const user = localStorage.getItem("@rocketmovies:user");
 
-            localStorage.setItem("@rocketmovies:user", JSON.stringify(user));
-            localStorage.setItem("@rocketmovies:token", token);
+    if (token && user) {
+      api.defaults.headers.common["Authorization"] = `Bearer ${token}`;
 
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-            setData({ user, token });
-        } catch (error) {
-            if (error.response) {
-                alert(error.response.data.message);
-            } else {
-                alert("Não foi possível entrar.");
-            }
-        }
+      setData({
+        token,
+        user: JSON.parse(user),
+      });
     }
+  }, []);
 
-    useEffect(() => {
-        const token = localStorage.getItem("@rocketmovies:token");
-        const user = localStorage.getItem("@rocketmovies:user");
-
-        if(token && user) {
-            api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-
-            setData({
-                token,
-                user: JSON.parse(user)
-            });
-        }
-    }, []);
-    
-    return (
-        <AuthContext.Provider value={{ 
-            signIn, 
-            signOut,
-            updateProfile,
-            user: data.user, 
-        }}
-        >
-            {children}
-        </AuthContext.Provider>
-    )
+  return (
+    <AuthContext.Provider
+      value={{
+        signIn,
+        signOut,
+        updateProfile,
+        user: data.user,
+      }}
+    >
+      {children}
+    </AuthContext.Provider>
+  );
 }
 
 function useAuth() {
-    const context = useContext(AuthContext);
+  const context = useContext(AuthContext);
 
-    return context;
+  return context;
 }
 
 export { AuthProvider, useAuth };

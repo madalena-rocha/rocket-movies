@@ -29,7 +29,7 @@ export const Form = styled.form`
     font-size: 14px;
     color: ${({ theme }) => theme.COLORS.GRAY_100};
   }
-  
+
   > a {
     margin-top: 42px;
     color: ${({ theme }) => theme.COLORS.PINK};

@@ -1,9 +1,9 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { FiPlus } from "react-icons/fi";
 import { Container, Content, NewMovie } from "./styles";
 
-import { api } from '../../services/api';
+import { api } from "../../services/api";
 
 import { Header } from "../../components/Header";
 import { Input } from "../../components/Input";
@@ -31,7 +31,7 @@ export function Home() {
   return (
     <Container>
       <Header>
-        <Input 
+        <Input
           placeholder="Pesquisar pelo título"
           onChange={(e) => setSearch(e.target.value)}
         />
@@ -48,15 +48,13 @@ export function Home() {
         </header>
 
         <Content>
-          {
-            movies.map(movie => (
-              <Movie 
-                key={String(movie.id)}
-                data={movie} 
-                onClick={() => handleDetails(movie.id)}
-              />
-            ))
-          }
+          {movies.map((movie) => (
+            <Movie
+              key={String(movie.id)}
+              data={movie}
+              onClick={() => handleDetails(movie.id)}
+            />
+          ))}
         </Content>
       </main>
     </Container>

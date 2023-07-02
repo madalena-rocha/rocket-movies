@@ -9,7 +9,7 @@ export const Container = styled.div`
   grid-template-areas:
     "header"
     "content";
-  
+
   > main {
     grid-area: content;
     overflow-y: auto;
@@ -29,7 +29,7 @@ export const Container = styled.div`
     flex-wrap: wrap;
 
     background-color: ${({ theme }) => theme.COLORS.BACKGROUND_900};
-    
+
     padding: 16px 16px 8px;
     border-radius: 8px;
   }
@@ -47,7 +47,7 @@ export const Form = styled.form`
 
     button {
       background: none;
-			border: none;
+      border: none;
     }
 
     h1 {
@@ -65,7 +65,7 @@ export const Form = styled.form`
       color: ${({ theme }) => theme.COLORS.PINK};
     }
   }
-  
+
   textarea {
     margin-top: 32px;
   }

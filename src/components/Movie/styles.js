@@ -22,15 +22,15 @@ export const Container = styled.button`
   > p {
     text-align: justify;
     color: ${({ theme }) => theme.COLORS.GRAY_300};
-    
+
     margin: 15px 0;
     max-height: 53px;
-    
+
     line-height: 19px;
-    
+
     overflow: hidden;
     text-overflow: ellipsis;
-    
+
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;

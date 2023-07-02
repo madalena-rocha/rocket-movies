@@ -10,7 +10,7 @@ export const Container = styled.div`
   grid-template-areas:
     "header"
     "content";
-  
+
   > main {
     grid-area: content;
 
@@ -50,12 +50,12 @@ export const NewMovie = styled(Link)`
   background-color: ${({ theme }) => theme.COLORS.PINK};
   color: ${({ theme }) => theme.COLORS.BACKGROUND_800};
   border: none;
-  
+
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  
+
   padding: 13.5px 32px;
   border-radius: 8px;
 `;

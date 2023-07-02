@@ -1,12 +1,12 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 import { FiArrowLeft, FiClock } from "react-icons/fi";
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from "react-router-dom";
 
-import { useAuth } from '../../hooks/auth';
+import { useAuth } from "../../hooks/auth";
 
-import { api } from '../../services/api';
+import { api } from "../../services/api";
 
-import moment from 'moment-timezone';
+import moment from "moment-timezone";
 
 import { Container } from "./styles";
 
@@ -21,26 +21,31 @@ export function Details() {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(false);
 
-	const params = useParams();
-  
-  const { user } = useAuth();
-  
-  const avatarURL = user.avatar ? `${api.defaults.baseURL}/files/${user.avatar}` : avatarPlaceholder;
+  const params = useParams();
 
-  const formattedDate = moment.utc(data.updated_at).tz('America/Sao_Paulo').format('DD/MM/YYYY HH:mm:ss');
+  const { user } = useAuth();
+
+  const avatarURL = user.avatar
+    ? `${api.defaults.baseURL}/files/${user.avatar}`
+    : avatarPlaceholder;
+
+  const formattedDate = moment
+    .utc(data.updated_at)
+    .tz("America/Sao_Paulo")
+    .format("DD/MM/YYYY HH:mm:ss");
 
   const navigate = useNavigate();
 
-	function handleBack() {
-		navigate(-1);
-	}
+  function handleBack() {
+    navigate(-1);
+  }
 
   async function handleRemove() {
     const confirm = window.confirm("Deseja realmente remover o filme?");
-  
+
     if (confirm) {
       setLoading(true);
-  
+
       try {
         await api.delete(`/notes/${params.id}`);
         navigate(-1);
@@ -48,39 +53,34 @@ export function Details() {
         if (error.response) {
           alert(error.response.data.message);
         } else {
-          alert('Não foi possível remover o filme.');
-          console.log('Erro ao remover o filme:', error);
+          alert("Não foi possível remover o filme.");
+          console.log("Erro ao remover o filme:", error);
         }
       } finally {
         setLoading(false);
       }
     }
-  }  
+  }
 
-	useEffect(() => {
-		async function fetchMovie() {
-			const response = await api.get(`/notes/${params.id}`);
-			setData(response.data);
-		}
+  useEffect(() => {
+    async function fetchMovie() {
+      const response = await api.get(`/notes/${params.id}`);
+      setData(response.data);
+    }
 
-		fetchMovie();
-	}, []);
+    fetchMovie();
+  }, []);
 
   return (
     <Container>
       <Header>
-        <Input 
-          placeholder="Pesquisar pelo título"
-        />
+        <Input placeholder="Pesquisar pelo título" />
       </Header>
 
-      {
-				data &&
+      {data && (
         <main>
           <header>
-            <ButtonText
-              onClick={handleBack}
-            >
+            <ButtonText onClick={handleBack}>
               <FiArrowLeft />
               Voltar
             </ButtonText>
@@ -92,49 +92,37 @@ export function Details() {
 
             <div className="movie-info">
               <p>
-                <img
-                  src={avatarURL}
-                  alt={user.name}
-                />
+                <img src={avatarURL} alt={user.name} />
                 Por {user.name}
               </p>
 
               <div>
                 <FiClock />
-                
-                <p>
-                  {formattedDate}
-                </p>
-                
+
+                <p>{formattedDate}</p>
               </div>
             </div>
           </header>
 
-          { 
-						data.tags && 
+          {data.tags && (
             <section>
-              {
-                data.tags.map(tag => (
-                  <Tag 
-                    key={String(tag.id)}
-                    title={tag.name} 
-                  />
-                ))
-              }
+              {data.tags.map((tag) => (
+                <Tag key={String(tag.id)} title={tag.name} />
+              ))}
             </section>
-          }
+          )}
 
           <p>{data.description}</p>
 
           <div>
-            <Button 
-              title="Excluir filme" 
+            <Button
+              title="Excluir filme"
               onClick={handleRemove}
               loading={loading}
             />
           </div>
         </main>
-      }
+      )}
     </Container>
   );
 }

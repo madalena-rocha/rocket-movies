@@ -11,33 +11,34 @@ import { Container, Form, Background } from "./styles";
 
 export function SignUp() {
   const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-	const navigate = useNavigate();
+  const navigate = useNavigate();
 
-	function handleSignUp() {
-		if (!name || !email || !password) {
-			return alert("Preencha todos os campos!");
-		}
+  function handleSignUp() {
+    if (!name || !email || !password) {
+      return alert("Preencha todos os campos!");
+    }
 
     setLoading(true);
 
-		api.post("/users", { name, email, password })
-			.then(() => {
-				alert("Usuário cadastrado com sucesso!");
-				navigate(-1);
-			})
-			.catch(error => {
-				if(error.response){
-					alert(error.response.data.message);
-				} else {
-					alert("Não foi possível cadastrar");
-				}
-			})
+    api
+      .post("/users", { name, email, password })
+      .then(() => {
+        alert("Usuário cadastrado com sucesso!");
+        navigate(-1);
+      })
+      .catch((error) => {
+        if (error.response) {
+          alert(error.response.data.message);
+        } else {
+          alert("Não foi possível cadastrar");
+        }
+      })
       .finally(() => setLoading(false));
-	}
+  }
 
   return (
     <Container>
@@ -47,25 +48,25 @@ export function SignUp() {
 
         <h2>Crie sua conta</h2>
 
-        <Input 
-          placeholder="Nome" 
-          type="text" 
-          icon={FiUser} 
-          onChange={e => setName(e.target.value)}
+        <Input
+          placeholder="Nome"
+          type="text"
+          icon={FiUser}
+          onChange={(e) => setName(e.target.value)}
         />
 
-        <Input 
-          placeholder="E-mail" 
-          type="text" 
-          icon={FiMail} 
-          onChange={e => setEmail(e.target.value)}
+        <Input
+          placeholder="E-mail"
+          type="text"
+          icon={FiMail}
+          onChange={(e) => setEmail(e.target.value)}
         />
 
-        <Input 
-          placeholder="Senha" 
-          type="password" 
-          icon={FiLock} 
-          onChange={e => setPassword(e.target.value)}
+        <Input
+          placeholder="Senha"
+          type="password"
+          icon={FiLock}
+          onChange={(e) => setPassword(e.target.value)}
         />
 
         <Button title="Cadastrar" onClick={handleSignUp} loading={loading} />

@@ -16,7 +16,7 @@ export const Container = styled.div`
 
     button {
       background: none;
-			border: none;
+      border: none;
     }
   }
 `;
@@ -63,7 +63,7 @@ export const Avatar = styled.div`
     input {
       display: none;
     }
-    
+
     svg {
       width: 20px;
       height: 20px;

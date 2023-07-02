@@ -9,7 +9,7 @@ export const Container = styled.div`
   grid-template-areas:
     "header"
     "content";
-  
+
   > main {
     grid-area: content;
     overflow-y: auto;
@@ -26,7 +26,7 @@ export const Container = styled.div`
 
       button {
         background: none;
-			  border: none;
+        border: none;
       }
 
       div {
@@ -38,7 +38,8 @@ export const Container = styled.div`
         gap: 8px;
         margin-top: 24px;
 
-        p:nth-child(1), div {
+        p:nth-child(1),
+        div {
           display: flex;
           align-items: center;
           gap: 8px;
@@ -65,10 +66,10 @@ export const Container = styled.div`
     > p {
       text-align: justify;
       color: ${({ theme }) => theme.COLORS.WHITE};
-      
+
       margin-top: 40px;
       max-width: calc(100% - 8px);
-      
+
       line-height: 21px;
     }
 
@@ -84,7 +85,7 @@ export const Container = styled.div`
   > main::-webkit-scrollbar {
     width: 8px;
   }
-  
+
   > main::-webkit-scrollbar-thumb {
     background-color: ${({ theme }) => theme.COLORS.PINK};
     border-radius: 8px;
